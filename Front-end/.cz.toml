@@ -80,7 +80,7 @@ name = "workflow_transition_stage"
 message = "Select the Workflow Transition"
 choices = [
     {value = "create", name = "Create "},
-    {value = "EM PROTOTIPACAO", name = "EM PROTOTIPACAO "},
+    {value = "EM PROTOTIPAÇÃO", name = "EM PROTOTIPAÇÃO "},
     {value = "VALIDANDO PROTOTIPO", name = "VALIDANDO PROTOTIPO "},
     {value = "Internal Review", name = "Internal Review "},
     {value = "External Review", name = "External Review "},
