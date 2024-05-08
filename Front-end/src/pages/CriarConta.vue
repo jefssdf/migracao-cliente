@@ -1,7 +1,7 @@
 <template>
   <div class="primeira" >
     <form class="form" @submit.prevent="enviarFormulario" >
-      <h2 style="font-weight: bold;">Registar</h2>
+      <h2 style="font-weight: bold;">Registrar</h2>
       <label>
         <span> Nome Completo </span>
         <q-input rounded outlined v-model="login" label="Digite seu Nome" />
