@@ -79,11 +79,13 @@ type = "list"
 name = "workflow_transition_stage"
 message = "Select the Workflow Transition"
 choices = [
-    {value = "create", name = "Create "},
+    {value = "Não Iniciado", name = "Não Iniciado "},
     {value = "EM PROTOTIPACAO", name = "EM PROTOTIPACAO "},
     {value = "VALIDANDO PROTOTIPO", name = "VALIDANDO PROTOTIPO "},
-    {value = "Internal Review", name = "Internal Review "},
-    {value = "External Review", name = "External Review "},
-    {value = "deploy", name = "Deploy "},
-    {value = "done", name = "Done "}
+    {value = "AGUARDANDO DESENVOLVIMENTO", name = "AGUARDANDO DESENVOLVIMENTO "},
+    {value = "EM DESENVOLVIMENTO", name = "EM DESENVOLVIMENTO "},
+    {value = "AGUARDANDO TESTES", name = "AGUARDANDO TESTES "},
+    {value = "EM TESTES", name = "EM TESTES "},
+    {value = "EM APROVAÇÃO", name = "EM APROVAÇÃO"},
+    {value = "FINALIZADO", name = "FINALIZADO"}
     ]
