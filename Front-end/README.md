@@ -1,6 +1,6 @@
 # Quasar crud (quasar-c)
 
-A Quasar Project
+A Quasar Project!
 
 ## Install the dependencies
 ```bash
