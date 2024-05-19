@@ -1,24 +1,24 @@
 <template>
-  <div class="primeira" >
+  <div class="primeira">
     <form class="form" @submit.prevent="enviarFormulario" >
       <h2 style="font-weight: bold;">Registrar</h2>
       <label>
-        <span> Nome Completo </span>
+         <span> Nome Completo </span>
         <q-input rounded outlined v-model="login" label="Digite seu Nome" />
       </label>
       <label>
         <span> Contato </span>
-        <q-input rounded outlined v-model="login" label="Digite seu Contato" />
+        <q-input rounded outlined v-model="Contato" label="Digite seu Contato" />
       </label>
       <label>
         <span> Email</span>
-        <q-input rounded outlined v-model="login" label="Digite seu Email" />
+        <q-input rounded outlined v-model="Email" label="Digite seu Email" :rules="[ val => /@/.test(val) || 'Insira um endereço de email válido' ]" />
       </label>
       <label>
         <span> Senha</span>
         <q-input type="password" rounded outlined v-model="senha" label="Digite sua Senha" />
         <span> Confirme sua senha</span>
-        <q-input type="password" rounded outlined v-model="senha" label="Digite novamente sua Senha" />
+        <q-input type="password" rounded outlined v-model="Confirmarsenha" label="Digite novamente sua Senha" />
       </label>
       <label>
         <span> Data de Nascimento</span>
@@ -49,24 +49,19 @@
 <style scoped>
 
   .primeira {
-
-      display: Block;
-      justify-content: center;
-      align-items: center;
-      background: #ebebeb;
-      border-radius: 25px;
-      width: 40%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      top: 48%;
-      margin-top: 50px;
-  }
-  input, button{
-      border:none;
-      outline: none;
-      background: none;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background: #ebebeb;
+    border-radius: 25px;
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 48%;
+    margin-top: 50px;
+    padding: 20px;
   }
 
   h2 {
@@ -78,61 +73,68 @@
   }
 
   .date-input-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .form{
-
-      padding: 20px 30px;
-      -webkit-transition:-webkit-transform 1.2s ease-in-out;
-      transition: -webkit-transform 1.2s ease-in-out;
-      transition: transform 1.2s ease-in-out;
-      transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+  .form {
+    padding: 20px 30px;
+    -webkit-transition:-webkit-transform 1.2s ease-in-out;
+    transition: -webkit-transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out;
+    transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
   }
 
-  label{
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
+  label {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
   }
 
-  label span{
-      font-size: 14px;
-      font-weight: 600;
-      color: #17a2b8;
-      text-transform: uppercase;
+  label span {
+    font-size: 14px;
+    font-weight: 600;
+    color: #17a2b8;
+    text-transform: uppercase;
   }
 
-  input{
-      display: Flex;
-      width: 100%;
-      margin-top: 5px;
-      font-size: 16px;
-      padding-bottom: 5px;
-      border-bottom: 1px solid rgba(185, 77, 77, 0.4);
-      text-align: center;
-      font-family: 'Nunito', sans-serif;
+  input {
+    display: flex;
+    width: 100%;
+    margin-top: 5px;
+    font-size: 16px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(185, 77, 77, 0.4);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
   }
 
   button {
-      display: block;
-      margin: 20px  auto;
-      width: 100%;
-      height: 36px;
-      border-radius: 30px;
-      background-color: #26a69a;
-      color: white;
-      font-size: 15px;
-      cursor: pointer;
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    height: 36px;
+    border-radius: 30px;
+    background-color: #26a69a;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
   }
 
   button:hover {
-      background-color: rgb(43, 233, 91);
+    background-color: rgb(43, 233, 91);
   }
-  .salvar-senha-label{
-    color: rgb(64, 166, 184) ;
+
+  .salvar-senha-label {
+    color: rgb(64, 166, 184);
+  }
+
+  @media only screen and (max-width: 767px) {
+    .primeira {
+      width: 90%;
+      padding-top: 80px;
+    }
   }
 </style>
 
@@ -143,7 +145,10 @@ import { useRouter } from 'vue-router'
 export default {
   setup () {
     const login = ref('')
+    const Contato = ref('')
+    const Email = ref('')
     const senha = ref('')
+    const Confirmarsenha = ref('')
     const salvarSenha = ref(false)
     const router = useRouter()
     const irParaAgendar = () => {
@@ -156,7 +161,10 @@ export default {
     return {
       date: ref('2024/04/10'),
       login,
+      Contato,
+      Email,
       senha,
+      Confirmarsenha,
       salvarSenha,
       irParaAgendar,
       enviarFormulario
